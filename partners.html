@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OCCUARY — Hyperlocal partner slots</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#04111f;color:#e8eef4;font-family:'DM Sans',sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:36px 20px 80px}
+.k{letter-spacing:2px;text-transform:uppercase;color:#00c2c7;font-size:12px}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,7vw,68px);line-height:.95;margin:8px 0 16px}
+.card{background:#0a1e33;border:1px solid rgba(0,194,199,.2);border-radius:16px;padding:18px;margin:14px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+a{color:#f0b429}
+label{display:block;margin:10px 0 4px;color:#7d93a8;font-size:12px}
+input,textarea{width:100%;box-sizing:border-box;background:#061525;border:1px solid rgba(0,194,199,.2);color:#e8eef4;border-radius:10px;padding:10px}
+button{margin-top:12px;width:100%;background:#f0b429;border:0;padding:12px;border-radius:10px;font-weight:700;cursor:pointer}
+.muted{color:#7d93a8}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="k">Ad inventory · not the vault</div>
+  <h1>Buy a hyperlocal market.<br>Do not buy the owner.</h1>
+  <p class="muted">Front page of Title First + Voice. Two rows down. Owner tools stay first. You get a market seat. You do not get title steering, photos, or the call log.</p>
+  <div class="grid">
+    <div class="card"><strong>Market sponsor</strong><p>One city or ZIP. Logo, 12 words, link. Mercer Island 98040 is the flagship seat.</p></div>
+    <div class="card"><strong>Investigators unit</strong><p>Real Estate Intelligence Investigators. Audit agents. Verify claims. Public footprint. Folio. Not a listing team.</p></div>
+    <div class="card"><strong>We take</strong><p>Owner-picked title shops. Counsel. Appraisers. Inspectors. News desks. Family offices. One partner per market until full.</p></div>
+    <div class="card"><strong>We refuse</strong><p>Firms that profit on title. Lead mills. Anyone who wants the vault or procuring cause on owner traffic.</p></div>
+  </div>
+  <div class="card">
+    <h2>Request a seat</h2>
+    <label>Market</label>
+    <input id="m" placeholder="98040 · East King · Tacoma" />
+    <label>Who you are</label>
+    <input id="w" placeholder="Investigator / title / counsel / news" />
+    <label>What you pay and what you will never touch</label>
+    <textarea id="o" rows="4"></textarea>
+    <button onclick="go()">Build the email</button>
+    <pre id="out" class="muted"></pre>
+  </div>
+  <p><a href="/">Back to the owner console</a></p>
+</div>
+<script>
+function go(){
+  const m=document.getElementById('m').value||'[Market]';
+  const w=document.getElementById('w').value||'[Partner]';
+  const o=document.getElementById('o').value||'—';
+  document.getElementById('out').textContent='To: partners@occuary.com\nSubject: Seat request — '+m+'\n\n'+w+'\n'+o+'\n\nI accept: owner tools above the ad. No title steering. No vault access. No procuring-cause claim on owner traffic.';
+}
+</script>
+</body>
+</html>
